@@ -51,10 +51,13 @@ let arr = Array2D.create 2 3 0 in
     for i = 0 to (Array2D.length1 arr) - 1 do
         for j = 0 to (Array2D.length2 arr) - 1 do
             arr.[i,j] <- j + 1 + (i*2 + i*1)
-printfn "Original Array:\n%A\n" arr
+
+let arr2 = Array2D.init 2 3 (fun i j -> j + 1 + (i*2 + i*1))
+
+printfn "Original Array:\n%A\n\n%A\n" arr arr2
 
 
 let transposeArray arra =
     Array2D.init (Array2D.length2 arra) (Array2D.length1 arra) (fun i j -> arra.[j,i])
 
-printfn "transposed Array:\n%A\n" (transposeArray arr)
+printfn "Transposed Array:\n%A\n\n%A\n" (transposeArray arr) (transposeArray arr2)
