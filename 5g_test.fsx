@@ -20,7 +20,7 @@ let firstColumn (lst: int list list) =
             listeny <- listeny @ [elm.Head]
     listeny
 
-printfn "%A" (firstColumn llst)
+printfn "firstColumn\n%A\n" (firstColumn llst)
 
 let dropFirstColumn (lst: int list list) =
     let mutable listeny = []
@@ -32,7 +32,7 @@ let dropFirstColumn (lst: int list list) =
     listeny
 
 
-printfn "%A" (dropFirstColumn llst)
+printfn "dropFirstColumn:\n%A\n" (dropFirstColumn llst)
 
 let transposeLstLst (lst: int list list) =
     let mutable a = lst
@@ -42,19 +42,19 @@ let transposeLstLst (lst: int list list) =
         a <- dropFirstColumn a
     b
 
-printfn "%A" (transposeLstLst llst)
-printfn "%A" (transposeLstLst lst2)
-printfn "%A" (transposeLstLst lst3)
+printfn "list1:\n%A\n" (transposeLstLst llst)
+printfn "list2:\n%A\n" (transposeLstLst lst2)
+printfn "list3:\n%A\n" (transposeLstLst lst3)
 
 
 let arr = Array2D.create 2 3 0 in
     for i = 0 to (Array2D.length1 arr) - 1 do
         for j = 0 to (Array2D.length2 arr) - 1 do
             arr.[i,j] <- j + 1 + (i*2 + i*1)
-printfn "%A" arr
+printfn "Original Array:\n%A\n" arr
 
 
 let transposeArray arra =
     Array2D.init (Array2D.length2 arra) (Array2D.length1 arra) (fun i j -> arra.[j,i])
 
-printfn "%A" (transposeArray arr)
+printfn "transposed Array:\n%A\n" (transposeArray arr)
